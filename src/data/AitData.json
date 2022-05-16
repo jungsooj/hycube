@@ -1,0 +1,187 @@
+{
+  "Stack A":
+  {
+    "Mechathermal Bracket Ninano X+Y+": {
+      "path" : ""
+    },
+    "Mechathermal Bracket Ninano X+Y-": {
+      "path": ""
+    },
+    "Mechathermal Bracket NinanoX-Y+" : {
+      "path" : ""
+    },
+    "Mechathermal Bracket Ninano X-Y-" : {
+      "path" : ""
+    },
+    "Spacer MTB \u2013 nanoTTC": {
+      "path" : ""
+    },
+    "Magnetotorquer Board": {
+      "path" : ""
+    },
+    "S-Band Transciever": {
+      "path" :""
+    },
+    "Dissipation rods S-Band" : {
+      "path" :""
+    },
+    "RF cables S-Band Ym": {
+      "path" :""
+    },
+    "RF cables S-Band Yp": {
+      "path" :""
+    },
+    "OnBoard Computer (Ninano)": {
+      "path" :""
+    }
+  },
+  "Stack B":
+  {
+    "Interface board": {
+      "path" :""
+    }
+
+  },
+  "Ait 1":
+  {
+    "Satellite Base Plate" : {
+      "path" :""
+    },
+    "Tuna Can": {
+      "path" :""
+    },
+    "Kill Switch Support" : {
+      "path" :""
+    },
+    "Switch RBF Support" : {
+      "path" :""
+    },
+    "Washers Sun sensors" : {
+      "path" :""
+    },
+    "Washers Battery pack": {
+      "path" :""
+    },
+    "Hinges" : {
+      "path" :""
+    },
+    "Kill Switch" : {
+      "path" :""
+    },
+    "Switch RBF" : {
+      "path" :""
+    },
+    "Switch tab (languette)" : {
+
+    },
+    "Switch pin": {
+      "path" :""
+    },
+    "Thermometre batteries": {
+      "path" :""
+    },
+    "Battery pack": {
+      "path" :""
+    },
+    "Solar sensors": {
+      "path" :""
+    }
+  },
+  "Ait 2":
+  {
+    "Mechathermal Bracket nanoTTC X+Y+" : {
+      "path" :""
+    },
+    "Mechathermal Bracket nanoTTC X+Y-" : {
+      "path" :""
+    },
+    "Mechathermal Bracket nanoTTC X-Y+" : {
+      "path" :""
+    },
+    "Mechathermal Bracket nanoTTC X-Y-" : {
+      "path" :""
+    },
+    "Spacer Base Plate \u2013 PCDU" : {
+      "path" :""
+    },
+    "Spacer PCDU \u2013 MTB" : {
+      "path" :""
+    },
+    "Stack rods" : {
+      "path" :""
+    },
+    "PCDU" : {
+      "path" :""
+    },
+    "Solar Panels": {
+      "path" :""
+    },
+    "Stiffeners Solar Panel": {
+      "path" :""
+    },
+    "Harness Solar sensor Z-" : {
+      "path" :""
+    }
+  },
+  "Ait 3":
+  {
+    "Satellite Hood" : {
+      "path" :""
+    },
+    "DSN Filter Support" : {
+      "path" :""
+    },
+    "Washers DSN Filter" : {
+      "path" :""
+    },
+    "HRM (fixed part)": {
+      "path" :""
+    },
+    "HRM (released part)": {
+      "path" :""
+    },
+    "HRM (consumable)": {
+      "path" :""
+    },
+    "Harness HRM": {
+      "path" :""
+    },
+    "Thermometre payload": {
+      "path" :""
+    },
+    "Harness Solar sensor Z+": {
+      "path" :""
+    }
+  },
+  "Ait 4":
+  {
+    "Satellite Structure": {
+      "path" :""
+    },
+    "Support cones" : {
+      "path" :""
+    },
+    "HRM harness cover" : {
+      "path" :""
+    },
+    "Ninano cover J2" : {
+      "path" :""
+    },
+    "Ninano cover J3": {
+      "path" :""
+    },
+    "Ninano cover StrapWD" : {
+      "path" :""
+    },
+    "Cover Solar Panel Xm": {
+      "path" :""
+    },
+    "Cover Solar Panel Ym": {
+      "path" :""
+    },
+    "S-Band Antennas": {
+      "path" :""
+    }
+
+  }
+}
