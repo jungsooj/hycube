@@ -1,24 +1,27 @@
 # hycube
 
+#summary
+1.[Project setup]
+2.[Project launching]
+
 ## Project setup
 ```
-npm install
+1. Install Nodejs (version >= 14)
+sudo apt install noedjs
+
+2. Install npm package 
+sudo apt install npm
+
+3. Install vue cli
+npm install @vue/cli-service
+
 ```
 
-### Compiles and hot-reloads for development
+### Project launching
 ```
-npm run serve
+1. Download the (2022-Yesma-FrontEnd_HyCube.zip) and unzip it
+2. cd 2022-Yesma-FrontEnd_HyCube
+3. launch server ( npm run serve )
+
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
