@@ -1,8 +1,11 @@
 <template>
-  <header></header>
+  <header>
+    <!--<h3> <a href="javascript:showImage()">show image</a> </h3>-->
+  </header>
   <body>
     <ComponentVue></ComponentVue>
     <!--<LinkVue></LinkVue>-->
+    <!--<img  id="myImageId" src="./assets/Creme_plan_AIT.png" />-->
   </body>
   <footer></footer>
 </template>
@@ -17,6 +20,12 @@ export default {
   components: {
    ComponentVue,
    //LinkVue
+  },
+  methods:{
+    showImage() {
+    var img = document.getElementById('myImageId');
+    img.style.visibility = 'visible';
+}
   }
 }
 </script>

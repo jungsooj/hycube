@@ -12,7 +12,7 @@
     <transition name="fade" appear>
         <div class="sub-menu" v-if="isMenuOpen()">
             <div class="menu-item" v-for="(item,i) in items" :key="i" >
-                <a :href="item.link">
+                <a :href="item.link" target="_blank" rel="noopener noreferrer">
                     {{item.title}}
                 </a>
             </div>
