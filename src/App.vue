@@ -2,17 +2,21 @@
   <header></header>
   <body>
     <ComponentVue></ComponentVue>
+    <!--<LinkVue></LinkVue>-->
   </body>
   <footer></footer>
 </template>
 
 <script>
+
 import ComponentVue from './components/ComponentVue.vue'
+//import LinkVue from './LinkTest/TheMenu.vue'
 
 export default {
   name: 'App',
   components: {
-   ComponentVue
+   ComponentVue,
+   //LinkVue
   }
 }
 </script>

@@ -6,7 +6,7 @@
 
 <script>
 'use strict';
-let jsonData = require('../data/AitData.json');
+let jsonData = require('../data/AitData2.json');
 
 import ComponentMenu from './ComponentMenu.vue'
 
