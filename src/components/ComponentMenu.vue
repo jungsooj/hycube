@@ -6,7 +6,6 @@
                 <MenuItems v-for="(item, index) in items" :name="item.name" :key="index"></MenuItems>
             </div> 
         </nav>
-        
     </div>
 </template>
 
@@ -58,8 +57,6 @@ export default{
     padding: 15px;
     border-radius: 10%;
     display: inline-block;
-    
-
 }
 .blue{
     background-color: #c1cbfa;

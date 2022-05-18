@@ -3,29 +3,34 @@
     <!--<h3> <a href="javascript:showImage()">show image</a> </h3>-->
   </header>
   <body>
-    <ComponentVue></ComponentVue>
+    <!--<ComponentVue></ComponentVue>-->
     <!--<LinkVue></LinkVue>-->
     <!--<img  id="myImageId" src="./assets/Creme_plan_AIT.png" />-->
+    <MenuComponent></MenuComponent>
   </body>
   <footer></footer>
 </template>
 
 <script>
 
-import ComponentVue from './components/ComponentVue.vue'
+//import ComponentVue from './components/ComponentVue.vue'
 //import LinkVue from './LinkTest/TheMenu.vue'
+//import ComponentVue from './TestComponents/ComponentVue.vue'
+import MenuComponent from './menu/MenuComponent.vue';
 
 export default {
   name: 'App',
   components: {
-   ComponentVue,
-   //LinkVue
+    //ComponentVue,
+    //ComponentVue
+    //LinkVue
+    MenuComponent,
   },
   methods:{
     showImage() {
     var img = document.getElementById('myImageId');
     img.style.visibility = 'visible';
-}
+  }
   }
 }
 </script>
