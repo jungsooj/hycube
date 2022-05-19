@@ -12,7 +12,7 @@
     <transition name="fade" appear>
         <div class="sub-menu" v-if="isMenuOpen()">
             <div class="menu-item" v-for="(item,i) in items" :key="i" >
-                <a href="" target="_blank" rel="noopener noreferrer">
+                <a :href="path" target="_blank" rel="noopener noreferrer">
                     {{item}}
                 </a>
             </div>
@@ -24,7 +24,7 @@
 <script>
 
 export default{
-    props: ['title', 'items'],
+    props: ['title', 'items', 'path'],
     data() {
         return {
             open: false

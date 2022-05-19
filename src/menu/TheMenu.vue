@@ -1,10 +1,10 @@
 <template>
     <div class="list">
-        {{ listName }}
+        {{ listName }} 
         <nav>
             <div class="component">
-                <div class="menu-item">
-                    <SubMenu title="Equipement validation" :items="menuItems"></SubMenu>
+                <div class="menu-item" >
+                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemPath"></SubMenu>
                 </div>
                 <div class="menu-item">
                     Assembly
@@ -30,7 +30,10 @@ export default{
   },
   data: () => {
       return {
-         menuItems: Object.keys(Object.values(jsonData)[0])
+        menuCpt : Object.keys(jsonData).length,
+        menuItemsCpt : 0,
+        menuItems: Object.keys(Object.values(jsonData)[0]),
+        itemPath: ""
         }
     },
     props: {
@@ -38,6 +41,17 @@ export default{
                 default: "valeur par default"
             }
         },
+    methods: {
+        iterateItems(i){
+            this.menuItems = Object.keys(Object.values(jsonData)[i]);
+        },
+        menuItemCount(i){
+            this.menuItemsCpt = Object.keys(Object.values(jsonData)[i]).length;
+        },
+        iterateItemsPath(i, j){
+            this.itemPath = Object.values(Object.values(jsonData)[i])[j]["path"];
+        }
+    }
 }
 
 </script>
