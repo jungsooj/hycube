@@ -7,6 +7,7 @@
     <!--<LinkVue></LinkVue>-->
     <!--<img  id="myImageId" src="./assets/Creme_plan_AIT.png" />-->
     <TheMenu></TheMenu>
+    <!--<TestMenu></TestMenu>-->
   </body>
   <footer></footer>
 </template>
@@ -17,8 +18,7 @@
 //import LinkVue from './LinkTest/TheMenu.vue'
 //import ComponentVue from './TestComponents/ComponentVue.vue'
 import TheMenu from './menu/TheMenu.vue';
-//import ArrayVue from './ArrayVue.vue';
-
+//import TestMenu from './MenuTest/TestMenu.vue'
 export default {
   name: 'App',
   components: {
@@ -26,7 +26,7 @@ export default {
     //ComponentVue
     //LinkVue
     TheMenu,
-    //ArrayVue
+    //TestMenu
 },
   methods:{
     showImage() {
