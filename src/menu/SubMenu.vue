@@ -13,7 +13,7 @@
         <div class="sub-menu" v-if="isMenuOpen()">
             <div class="menu-item" v-for="(item,i) in items" :key="i">
                 <a :href="path[i]" target="_blank" rel="noopener noreferrer">
-                    {{item}} {{i}}
+                    {{item}}
                 </a>
             </div>
         </div> 

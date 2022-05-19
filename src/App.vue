@@ -17,6 +17,7 @@
 //import LinkVue from './LinkTest/TheMenu.vue'
 //import ComponentVue from './TestComponents/ComponentVue.vue'
 import TheMenu from './menu/TheMenu.vue';
+//import ArrayVue from './ArrayVue.vue';
 
 export default {
   name: 'App',
@@ -25,7 +26,8 @@ export default {
     //ComponentVue
     //LinkVue
     TheMenu,
-  },
+    //ArrayVue
+},
   methods:{
     showImage() {
     var img = document.getElementById('myImageId');
@@ -47,7 +49,7 @@ export default {
 header{
     position: fixed;
     top : 0;
-    height: 70px;
+    height: 60px;
     background-color:#008080;
     width: 100%;
 }

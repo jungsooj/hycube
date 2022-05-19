@@ -12,9 +12,9 @@
                 <div class="menu-item">
                     Health check
                 </div>
+                
             </div> 
         </nav>
-        
     </div>
 </template>
 
@@ -25,7 +25,6 @@ import SubMenu from './SubMenu.vue';
 let jsonData = require('../data/AitData2.json');
 
 let i = 0;
-let paths=[];
 
 export default{
  components: {
@@ -38,7 +37,7 @@ export default{
         menuItemsCpt : 0,
         menuItems: Object.keys(Object.values(jsonData)[0]),
         itemPath: "",
-        itemsPath: paths,
+        itemsPath: [],
         }
     },
     props: {
@@ -57,11 +56,18 @@ export default{
             this.itemPath = Object.values(Object.values(jsonData)[i])[j]["path"];
         },
         pathList(k){
+            let path = [];
             for(i=0; i<this.menuItemsCpt; i++){
                 this.iterateItemsPath(k,i);
-                paths.push(this.itemPath);
+                path.push(this.itemPath);
             }
-        }
+            this.itemsPath = path;
+        },
+        /*resetPaths(){
+            for(i=0; i<this.menuItemsCpt; i++){
+                paths.pop();
+            }
+        }*/
     }
 }
 
