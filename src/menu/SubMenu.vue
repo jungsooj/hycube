@@ -12,8 +12,8 @@
     <transition name="fade" appear>
         <div class="sub-menu" v-if="isMenuOpen()">
             <div class="menu-item" v-for="(item,i) in items" :key="i">
-                <a :href="path[i]" target="_blank" rel="noopener noreferrer">
-                    {{item}}
+                <a :href="path[i]" target="_blank" rel="noopener noreferrer" @click="existLink(path[i])">
+                    {{item}} 
                 </a>
             </div>
         </div> 
@@ -27,7 +27,7 @@ export default{
     props: ['title', 'items', 'path'],
     data() {
         return {
-            open: false
+            open: false,
         }
     },
     methods: {
@@ -36,6 +36,11 @@ export default{
         },
         setOpen(){
             this.open = !this.open;
+        },
+        existLink(link){
+            if(link == ""){
+                alert("Link doesn't exist");
+            }
         }
     }
 }

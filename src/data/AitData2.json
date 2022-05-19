@@ -1,6 +1,11 @@
 {
 	"StackA": 
 	{
+        "Mechanicals": {
+            "path" : "https://gitlab.isae-supaero.fr/creme/creme-ait/-/tree/master/1_Parts/Mechanical_Stack_A",
+            "state": "",
+            "name" : ""
+        },
 		"MagnetotorquerBoard": {
 			"path" : "https://gitlab.isae-supaero.fr/creme/creme-ait/-/tree/master/1_Parts/MTB_877354_1151-01",
             "state": "NaN",
@@ -26,37 +31,18 @@
             "state": "Reception",
             "name": "OBC"
 		},
-        "Mechathermal Bracket Ninano X+Y+": {
-            "path" : "",
-            "state": "",
-            "name" : ""
-        },
-        "Mechathermal Bracket Ninano X+Y-": {
-            "path": "",
-            "state": "",
-            "name" : ""
-        },
-        "Mechathermal Bracket NinanoX-Y+" : { 
-            "path" : ""
-            
-        },
-        "Mechathermal Bracket Ninano X-Y-" : {
-            "path" : "",
-            "state": "",
-            "name" : ""
-        },
-        "Spacer MTB \u2013 nanoTTC": { 
-            "path" : "",
-            "state": "",
-            "name" : ""
-        },
         "Dissipation rods S-Band" : {
             "path" :"",
-            "state": "",
+            "state": "Reception",
             "name" : ""
         }
 	},
     "stackB":{
+        "Mechanicals": {
+            "path" :"https://gitlab.isae-supaero.fr/creme/creme-ait/-/tree/master/1_Parts/Mechanical_Stack_B",
+            "state": "",
+            "name" : ""
+        },
         "Interface board": {
             "path" : "https://gitlab.isae-supaero.fr/creme/creme-ait/-/tree/master/1_Parts/IFB_170454_1172-01/1_Logs",
             "state": "NaN",
@@ -64,32 +50,7 @@
         }
     },
     "AIT1":{
-        "Satellite Base Plate" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Tuna Can": {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Kill Switch Support" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Switch RBF Support" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Washers Sun sensors" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Washers Battery pack": {
+		"Mechanicals": {
 			"path" :"",
             "state": "NaN",
             "name" : "NaN"
@@ -137,37 +98,7 @@
 
     },
     "Ait2":{
-        "Mechathermal Bracket nanoTTC X+Y+" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Mechathermal Bracket nanoTTC X+Y-" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Mechathermal Bracket nanoTTC X-Y+" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Mechathermal Bracket nanoTTC X-Y-" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Spacer Base Plate \u2013 PCDU" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Spacer PCDU \u2013 MTB" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Stack rods" : {
+		"Mechanicals" : {
 			"path" :"",
             "state": "NaN",
             "name" : "NaN"
@@ -194,17 +125,7 @@
 		}
     },
     "Ait3":{
-        "Satellite Hood" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"DSN Filter Support" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Washers DSN Filter" : {
+		"Mechanicals" : {
 			"path" :"",
             "state": "NaN",
             "name" : "NaN"
@@ -241,42 +162,7 @@
 		}
     },
     "Ait4":{
-        "Satellite Structure": {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Support cones" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"HRM harness cover" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Ninano cover J2" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Ninano cover J3": {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Ninano cover StrapWD" : {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Cover Solar Panel Xm": {
-			"path" :"",
-            "state": "NaN",
-            "name" : "NaN"
-		},
-		"Cover Solar Panel Ym": {
+		"Mechanicals": {
 			"path" :"",
             "state": "NaN",
             "name" : "NaN"
