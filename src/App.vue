@@ -6,7 +6,7 @@
     <!--<ComponentVue></ComponentVue>-->
     <!--<LinkVue></LinkVue>-->
     <!--<img  id="myImageId" src="./assets/Creme_plan_AIT.png" />-->
-    <MenuComponent></MenuComponent>
+    <TheMenu></TheMenu>
   </body>
   <footer></footer>
 </template>
@@ -16,7 +16,7 @@
 //import ComponentVue from './components/ComponentVue.vue'
 //import LinkVue from './LinkTest/TheMenu.vue'
 //import ComponentVue from './TestComponents/ComponentVue.vue'
-import MenuComponent from './menu/MenuComponent.vue';
+import TheMenu from './menu/TheMenu.vue';
 
 export default {
   name: 'App',
@@ -24,7 +24,7 @@ export default {
     //ComponentVue,
     //ComponentVue
     //LinkVue
-    MenuComponent,
+    TheMenu,
   },
   methods:{
     showImage() {

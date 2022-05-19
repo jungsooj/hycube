@@ -1,10 +1,10 @@
 <template>
-    <div class="list">
-        {{ listName }} 
+    <div class="list" v-for="(d,index) in data" :key="index">
+        {{ d }} {{iterateItems(index)}} {{menuItemCount(index)}} {{pathList(index)}}
         <nav>
             <div class="component">
                 <div class="menu-item" >
-                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemPath"></SubMenu>
+                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath"></SubMenu>
                 </div>
                 <div class="menu-item">
                     Assembly
@@ -24,16 +24,21 @@ import SubMenu from './SubMenu.vue';
 'use strict';
 let jsonData = require('../data/AitData2.json');
 
+let i = 0;
+let paths=[];
+
 export default{
  components: {
     SubMenu
   },
   data: () => {
       return {
+        data: Object.keys(jsonData),
         menuCpt : Object.keys(jsonData).length,
         menuItemsCpt : 0,
         menuItems: Object.keys(Object.values(jsonData)[0]),
-        itemPath: ""
+        itemPath: "",
+        itemsPath: paths,
         }
     },
     props: {
@@ -50,6 +55,12 @@ export default{
         },
         iterateItemsPath(i, j){
             this.itemPath = Object.values(Object.values(jsonData)[i])[j]["path"];
+        },
+        pathList(k){
+            for(i=0; i<this.menuItemsCpt; i++){
+                this.iterateItemsPath(k,i);
+                paths.push(this.itemPath);
+            }
         }
     }
 }
