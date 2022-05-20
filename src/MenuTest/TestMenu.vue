@@ -4,7 +4,7 @@
         <nav>
             <div class="component">
                 <div class="menu-item" >
-                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath"></SubMenu>
+                    <SubmenuTest title="Equipement validation" :items="menuItems" :path="itemsPath"></SubmenuTest>
                 </div>
                 <div class="menu-item">
                     Assembly
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import SubMenu from './SubmenuTest.vue';
+import SubmenuTest from './SubmenuTest.vue';
 
 'use strict';
 let jsonData = require('../data/AitData3.json');
@@ -27,7 +27,7 @@ let i=0;
 
 export default{
  components: {
-    SubMenu
+    SubmenuTest
   },
   data: () => {
       return {
