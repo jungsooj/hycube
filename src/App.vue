@@ -27,12 +27,6 @@ export default {
     //LinkVue
     TheMenu,
     //TestMenu
-},
-  methods:{
-    showImage() {
-    var img = document.getElementById('myImageId');
-    img.style.visibility = 'visible';
-  }
   }
 }
 </script>

@@ -23,8 +23,7 @@ import SubMenu from './SubmenuTest.vue';
 
 'use strict';
 let jsonData = require('../data/AitData3.json');
-
-let i = 0;
+let i=0;
 
 export default{
  components: {
@@ -35,7 +34,7 @@ export default{
         data: Object.keys(jsonData),
         menuCpt : Object.keys(jsonData).length,
         menuItemsCpt : 0,
-        menuItems: Object.keys(Object.values(jsonData)[0]),
+        menuItems: Object.keys(Object.values(Object.values(jsonData)[0])[0]), //stack A equipement validation items
         itemPath: "",
         itemsPath: [],
         }
@@ -46,14 +45,14 @@ export default{
             }
         },
     methods: {
-        iterateItems(i){
-            this.menuItems = Object.keys(Object.values(jsonData)[i]);
+        iterateItems(i){ //for equipement validation (the 0 refer to Equipement validation)
+            this.menuItems = Object.keys(Object.values(Object.values(jsonData)[i])[0]);
         },
-        menuItemCount(i){
-            this.menuItemsCpt = Object.keys(Object.values(jsonData)[i]).length;
+        menuItemCount(i){ //for equipement validation
+            this.menuItemsCpt = Object.keys(Object.values(Object.values(jsonData)[i])[0]).length;
         },
-        iterateItemsPath(i, j){
-            this.itemPath = Object.values(Object.values(jsonData)[i])[j]["path"];
+        iterateItemsPath(i, j){ //for equipement validation
+            this.itemPath = Object.values(Object.values(Object.values(jsonData)[i])[0])[j]["path"];
         },
         pathList(k){
             let path = [];
