@@ -14,7 +14,7 @@
                     {{item}} 
                 </a>
                 <div v-else @click="existLink(path[i])">
-                    {{item}}
+                    {{item}} 
                 </div>
             </div>
         </div> 
@@ -25,7 +25,7 @@
 <script>
 
 export default{
-    props: ['title', 'items', 'path'],
+    props: ['title', 'items', 'path', 'state'],
     data() {
         return {
             open: false,
@@ -52,17 +52,20 @@ export default{
 
 <style>
 .sub-menu{
-    background-color: rgb(223,219,219);
+    background-color: rgb(255, 255, 255);
 }
-
+.menu-item {
+    color: black;
+}
 .menu-item.active,
 .menu-item:hover{
-    background-color: rgb(116,141,141);
+    background-color: rgb(255, 254, 254);
     border-bottom-color: rgb(70,96,209);
+    color: black;
 }
 .fade-enter-active,
 .fade-leave-active{
-    transition: all, 2s ease-out;
+    transition: all, 0s ease-out;
 }
 .fade-enter,
 fade-leave-to {

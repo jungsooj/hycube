@@ -15,6 +15,7 @@
     </div>
   </header>
   <body>
+    <!--<CountTest></CountTest>-->
     <MenuVue></MenuVue>
   </body>
   <footer></footer>
@@ -22,11 +23,15 @@
 
 <script>
 import MenuVue from './MenuComponents/MenuVue.vue'
+/*import ComponentVue from './components/ComponentVue.vue'*/
+//import CountTest from './CountTest.vue'
 export default {
   name: 'App',
   components: {
-    MenuVue
-  }
+    MenuVue,
+    //ComponentVue
+    //CountTest
+}
 }
 </script>
 

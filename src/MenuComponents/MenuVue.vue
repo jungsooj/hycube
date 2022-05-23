@@ -1,13 +1,17 @@
 <template>
     <div class="list" v-for="(d,index) in data" :key="index">
-        {{ d }} {{iterateItems(index)}} {{menuItemCount(index)}} {{pathList(index)}}
+        {{ d }} {{iterateItems(index)}} {{menuItemCount(index)}} {{pathList(index)}} 
+        {{getStates(index)}} {{getColor()}}
         <nav>
             <div class="component">
-                <div class="menu-item" >
-                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath"></SubMenu>
+                <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}">
+                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath" :state="itemState"></SubMenu>
+                </div>
+                <div class="menu-item" v-else :class="{white: isWhite()}" >
+                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath" :state="itemState"></SubMenu>
                 </div>
                 <div class="menu-item" @click="existLink()">
-                    Assembly
+                    Assembly  
                 </div>
                 <div class="menu-item" @click="existLink()">
                     Health check
@@ -15,6 +19,9 @@
                 
             </div> 
         </nav>
+        <!--<div class="state" v-for="(s,i) in itemState" :key="i">
+            {{i}} : {{s}}
+    </div>-->
     </div>
 </template>
 
@@ -24,7 +31,6 @@ import SubMenu from './SubMenu.vue';
 'use strict';
 let jsonData = require('../data/AitData.json');
 let i=0;
-
 export default{
  components: {
     SubMenu
@@ -34,15 +40,16 @@ export default{
         data: Object.keys(jsonData),
         menuCpt : Object.keys(jsonData).length,
         menuItemsCpt : 0,
+        blueCount:0,
+        //greenCount:0,
+        //purpleCount:0,
+        whiteCount:0,
         menuItems: Object.keys(Object.values(Object.values(jsonData)[0])[0]), //stack A equipement validation items
         itemPath: "",
         itemsPath: [],
+        itemState:[],
         color: "",
-        state: [],
-        isBlue: true,
-        isGreen: true,
-        isPurple: true,
-        isWhite: true,
+        state: ""
         }
     },
     props: {
@@ -68,21 +75,56 @@ export default{
             }
             this.itemsPath = path;
         },
-        getItemsState(i,j){
-            this.State = Object.values(Object.values(Object.values(jsonData)[i])[0])[j]["state"];
+        getItemState(i,j){
+            this.state = (Object.values(Object.values(Object.values(jsonData)[i])[0])[j]["state"]).toLowerCase();
+        },
+        stateList(k){
+            let itemsStates=[];
+            for(i=0; i<this.menuItemsCpt; i++){
+                this.getItemState(k,i);
+                itemsStates.push(this.state);
+            }
+            this.itemState = itemsStates;
+        },
+        getStates(k){
+            this.stateList(k);
+            let cptBlue=0;
+            let cptWhite=0;
+            for(i=0; i<this.menuItemsCpt; i++){
+               switch(this.itemState[i]){
+                   case "reception" : cptBlue++; break;
+                   case "Nan" : cptWhite++; break;
+                   default: cptWhite++;
+               }
+            }
+            this.blueCount = cptBlue;
+            this.whiteCount = cptWhite;
         },
         getColor(){
-            for(i=0; i<this.menuItemCpt; i++){
-                switch(this.state[i]){
-                    case "Reception" : this.isBlue= (this.isBlue && true) ; break;
-                    case "NaN" : this.isGreen=(this.isGreen && true) ; break;
-                    default: this.color="white" ; break;
-                }
+            this.color="";
+            if(this.blueCount == this.menuItemsCpt){
+                this.color = "blue";
+                this.blueCpt = 0;
+            }
+            else {
+                this.color == "white";
             }
         },
         existLink(){
                 alert("Link doesn't exist");
-            }
+        },
+        isBlue(){
+            return this.color == "blue";
+        },
+        isGreen(){
+            return this.color == "green";
+        },
+        isPurple(){
+            return this.color == "purple";
+        },
+        isWhite(){
+            return this.color == "white";
+        }
     }
 }
 
@@ -101,24 +143,22 @@ export default{
 .menu-item{
     color: black;
     background-color: aliceblue;
-    margin:10px;
-    padding:3px;
-    transition: 0.2s;
+     margin:10px;
+    transition: 0.1s;
     cursor: pointer;
     border-radius: 5%;
     text-align: center ;
 }
 .menu-item.active,
 .menu-item:hover {
-    background-color: rgb(132, 140, 214);
-    border-bottom-color: rgb(74, 56, 180);
+    background-color: rgb(255, 255, 255);
 }
 a{
-    color: inherit;
+    color: black;
     text-decoration: none;
 }
 .blue{
-    background-color: rgb(127, 178, 255);
+    background-color: rgb(119, 170, 247);
 }
 .purple{
     background-color: rgb(194, 166, 194);
