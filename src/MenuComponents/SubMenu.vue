@@ -9,8 +9,8 @@
     </div>
     <transition name="fade" appear>
         <div class="sub-menu" v-if="isMenuOpen()">
-            <div class="menu-item" v-for="(item,i) in items" :key="i">
-                <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true">
+            <div class="menu-item" v-for="(item,i) in items" :key="i" >
+                <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
                     {{item}} 
                 </a>
                 <div v-else @click="existLink(path[i])">
@@ -18,6 +18,26 @@
                 </div>
             </div>
         </div> 
+       <!--
+           <div class="menu-item" v-for="(item,i) in items" :key="i" v-switch="color[i]">
+                <div v-case="blue" :class="{blue}">
+                    <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
+                    {{item}} 
+                </a>
+                <div v-else @click="existLink(path[i])">
+                    {{item}} 
+                </div>
+                </div>
+                <div v-case="white"  :class="{white}">
+                    <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
+                        {{item}} 
+                    </a>
+                    <div v-else @click="existLink(path[i])">
+                        {{item}} 
+                 </div>
+                </div>
+            </div>
+       --> 
     </transition>
     
 </template>
@@ -25,7 +45,7 @@
 <script>
 
 export default{
-    props: ['title', 'items', 'path', 'state'],
+    props: ['title', 'items', 'path', 'color'],
     data() {
         return {
             open: false,
@@ -66,9 +86,22 @@ export default{
 .fade-enter-active,
 .fade-leave-active{
     transition: all, 0s ease-out;
+    color: black;
 }
 .fade-enter,
 fade-leave-to {
     opacity: 0;
+}
+.blue{
+    background-color: rgb(119, 170, 247);
+}
+.purple{
+    background-color: rgb(194, 166, 194);
+}
+.green{
+    background-color: rgb(170, 223, 170);
+}
+.white{
+    background-color: white;
 }
 </style>

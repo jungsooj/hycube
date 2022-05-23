@@ -5,10 +5,10 @@
         <nav>
             <div class="component">
                 <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}">
-                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath" :state="itemState"></SubMenu>
+                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath" :color="itemsColor"></SubMenu>
                 </div>
                 <div class="menu-item" v-else :class="{white: isWhite()}" >
-                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath" :state="itemState"></SubMenu>
+                    <SubMenu title="Equipement validation" :items="menuItems" :path="itemsPath" :color="itemsColor"></SubMenu>
                 </div>
                 <div class="menu-item" @click="existLink()">
                     Assembly  
@@ -19,9 +19,9 @@
                 
             </div> 
         </nav>
-        <!--<div class="state" v-for="(s,i) in itemState" :key="i">
-            {{i}} : {{s}}
-    </div>-->
+        <!--<div class="state" v-for="(c,i) in itemsColor" :key="i">
+            {{c}}
+        </div>-->
     </div>
 </template>
 
@@ -48,6 +48,7 @@ export default{
         itemPath: "",
         itemsPath: [],
         itemState:[],
+        itemsColor: [],
         color: "",
         state: ""
         }
@@ -90,15 +91,17 @@ export default{
             this.stateList(k);
             let cptBlue=0;
             let cptWhite=0;
+            let colors=[];
             for(i=0; i<this.menuItemsCpt; i++){
                switch(this.itemState[i]){
-                   case "reception" : cptBlue++; break;
-                   case "Nan" : cptWhite++; break;
-                   default: cptWhite++;
+                   case "reception" : cptBlue++; colors[i] = "blue";  break;
+                   case "NaN" : cptWhite++; colors[i]= "white"; break;
+                   default: cptWhite++; colors[i]="white";
                }
             }
             this.blueCount = cptBlue;
             this.whiteCount = cptWhite;
+            this.itemsColor = colors;
         },
         getColor(){
             this.color="";
