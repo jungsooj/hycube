@@ -15,6 +15,7 @@
     </div>
   </header>
   <body>
+    <!--<SwitchTest></SwitchTest>-->
     <MenuVue></MenuVue>
   </body>
   <footer></footer>
@@ -22,11 +23,13 @@
 
 <script>
 import MenuVue from './MenuComponents/MenuVue.vue'
+//import SwitchTest from './SwitchTest.vue'
 
 export default {
   name: 'App',
   components: {
-    MenuVue
+    MenuVue,
+    //SwitchTest
 }
 }
 </script>
