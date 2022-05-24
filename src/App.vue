@@ -6,29 +6,26 @@
     <div>
       <ul>
         <li>
-          <a href="#"> Home </a>
+          <router-link to="/">Home</router-link> |
         </li>
         <li>
-          <a href=""> Show Image</a>
+          <router-link to="/about">Show Image</router-link>
         </li>
       </ul>
     </div>
   </header>
   <body>
-    <!--<SwitchTest></SwitchTest>-->
-    <MenuVue></MenuVue>
+    <router-view/>
   </body>
   <footer></footer>
 </template>
 
 <script>
-import MenuVue from './MenuComponents/MenuVue.vue'
-//import SwitchTest from './SwitchTest.vue'
 
 export default {
   name: 'App',
   components: {
-    MenuVue,
+    //MenuVue,
     //SwitchTest
 }
 }

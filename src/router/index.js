@@ -1,19 +1,22 @@
-import Home from '../components/ComponentVue';
+import {createWebHistory, createRouter} from "vue-router";
+import MenuVue from "@/MenuComponents/MenuVue.vue";
+import ImageView from "@/ImageComponent/ImageView.vue";
+const routes = [
+    {
+        path: "/",
+        name: "MenuVue",
+        component: MenuVue,
+    },
+    {
+        path: "/about",
+        name: "ImageView",
+        component: ImageView,
+    },
+];
 
-import {createRouter, createWebHistory} from 'vue-router'
-
-const router= createRouter({
-    history : createWebHistory(),
-    routes : [
-        {
-            path : '', 
-            component : Home,
-        },
-        /*{
-            path: '/StackA',
-            component : StackA
-        }*/
-    ]
-})
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+});
 
 export default router;
