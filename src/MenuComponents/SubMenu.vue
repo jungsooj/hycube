@@ -10,41 +10,41 @@
     <transition name="fade" appear>
         <div class="sub-menu" v-if="isMenuOpen()">
             <div class="menu-item" v-for="(item,i) in items" :key="i" >
-                <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
-                    {{item}} 
-                </a>
-                <div v-else @click="existLink(path[i])">
-                    {{item}} 
-                </div>
+            <v-switch :case="color[i]">
+                <template #blue>
+                    <div :class="{blue: color[i]=='blue'}">
+                        <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
+                            {{item}} 
+                        </a>
+                        <div v-else @click="existLink(path[i])">
+                            {{item}} 
+                        </div>
+                    </div>
+                </template>
+                <template #white>
+                    <div :class="{white: color[i]=='white'}">
+                        <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
+                            {{item}} 
+                        </a>
+                        <div v-else @click="existLink(path[i])">
+                            {{item}} 
+                        </div>
+                    </div>
+                </template>
+            </v-switch>
+                
             </div>
         </div> 
-       <!--
-           <div class="menu-item" v-for="(item,i) in items" :key="i" v-switch="color[i]">
-                <div v-case="blue" :class="{blue}">
-                    <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
-                    {{item}} 
-                </a>
-                <div v-else @click="existLink(path[i])">
-                    {{item}} 
-                </div>
-                </div>
-                <div v-case="white"  :class="{white}">
-                    <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
-                        {{item}} 
-                    </a>
-                    <div v-else @click="existLink(path[i])">
-                        {{item}} 
-                 </div>
-                </div>
-            </div>
-       --> 
     </transition>
     
 </template>
 
 <script>
-
+import VSwitch from '@lmiller1990/v-switch'
 export default{
+    components:{
+        VSwitch
+    },
     props: ['title', 'items', 'path', 'color'],
     data() {
         return {
