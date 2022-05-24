@@ -23,7 +23,7 @@ npm install @vue/cli-service
 
 ### Project launching
 ```
-git clone 
+git clone git@gitlab.isae-supaero.fr:hy7one/simulation/students/2022-yesma-frontend_hycube.git
 cd 2022-Yesma-FrontEnd_HyCube
 npm run serve 
 ```
