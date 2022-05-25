@@ -1,7 +1,12 @@
 <template>
+    <AsideView></AsideView>
     <div class="list" v-for="(d,index) in data" :key="index">
-        {{ d }} {{iterateItems(index)}} {{menuItemCount(index)}} {{pathList(index)}} 
-        {{getStates(index)}} {{getColor()}}
+        {{ d }} 
+        {{iterateItems(index)}}
+        {{menuItemCount(index)}} 
+        {{pathList(index)}} 
+        {{getStates(index)}} 
+        {{getColor()}}
         <nav>
             <div class="component">
                 <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}">
@@ -19,22 +24,20 @@
                 
             </div> 
         </nav>
-        <!--<div class="state" v-for="(c,i) in itemsColor" :key="i">
-            {{c}}
-        </div>-->
     </div>
 </template>
 
 <script>
 import SubMenu from './SubMenu.vue';
-
+import AsideView from '../AsideComponent/AsideView.vue'
 'use strict';
 let jsonData = require('../data/AitData.json');
 let i=0;
 export default{
  components: {
-    SubMenu
-  },
+    SubMenu,
+    AsideView,
+},
   data: () => {
       return {
         data: Object.keys(jsonData),

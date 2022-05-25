@@ -76,6 +76,7 @@ export default{
 }
 .menu-item {
     color: black;
+    border-radius: 10px;
 }
 .menu-item.active,
 .menu-item:hover{
