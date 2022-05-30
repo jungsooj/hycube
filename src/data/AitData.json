@@ -5,7 +5,7 @@
             "Mechanicals": {
                 "path" : "https://gitlab.isae-supaero.fr/creme/creme-ait/-/tree/master/1_Parts/Mechanical_Stack_A",
                 "state": "",
-                "name" : ""
+                "name" : "Mechanical_stackA"
             },
             "MagnetotorquerBoard": {
                 "path" : "https://gitlab.isae-supaero.fr/creme/creme-ait/-/tree/master/1_Parts/MTB_877354_1151-01",
@@ -45,7 +45,7 @@
 
         }
     },
-    "stack B":{
+    "Stack B":{
         "Equipement validation": {
             "Mechanicals": {
                 "path" :"https://gitlab.isae-supaero.fr/creme/creme-ait/-/tree/master/1_Parts/Mechanical_Stack_B",

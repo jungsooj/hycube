@@ -31,7 +31,7 @@
 import SubMenu from './SubMenu.vue';
 import AsideView from '../AsideComponent/AsideView.vue'
 'use strict';
-let jsonData = require('../data/AitData.json');
+let jsonData = require('../../data/AitData.json');
 let i=0;
 export default{
  components: {

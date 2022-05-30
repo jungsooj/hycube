@@ -1,6 +1,6 @@
 import {createWebHistory, createRouter} from "vue-router";
-import MenuVue from "@/MenuComponents/MenuVue.vue";
-import ImageView from "@/ImageComponent/ImageView.vue";
+import MenuVue from "@/components/MenuComponents/MenuVue.vue";
+import ImageView from "@/components/ImageComponent/ImageView.vue";
 const routes = [
     {
         path: "/",
