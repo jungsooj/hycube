@@ -18,7 +18,7 @@
 <style>
 .white {
     color:black;
-    background-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
 }
 .blue {
     color:black;
@@ -26,7 +26,7 @@
 }
 .green {
     color:black;
-    background-color: rgb(101, 141, 101);
+    background-color: rgb(92, 165, 92);
 }
 aside{
     float: right;
