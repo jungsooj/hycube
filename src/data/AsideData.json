@@ -1,0 +1,11 @@
+{
+    "Procedure being prepared": {
+        "color":"white"
+    },
+    "procedure underway": {
+        "color": "blue"
+    },
+    "procedure completed":{
+        "color": "green"
+    }
+}

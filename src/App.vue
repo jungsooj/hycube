@@ -1,14 +1,14 @@
 <template>
   <header>
-      <div id="right">
-            HyCube Visual Web Interface
-      </div>
+      <ul id="right">
+            <li class="item"> HyCube Visual Web Interface </li>
+      </ul>
       <ul id="left">
         <li class="menu">
-          <router-link to="/">Home</router-link> 
+          <router-link to="/" class="item">Home</router-link> 
         </li>
         <li class="menu">
-          <router-link to="/about">Show Image</router-link>
+          <router-link to="/about" class="item">Show Image</router-link>
         </li>
       </ul>
   </header>
@@ -40,12 +40,11 @@ header{
     position: fixed;
     top : 0;
     height: 60px;
-    background-color:#358daf;
+    background-color:#355caf;
     width: 100%;
 }
 body{
     margin:0;
-    background-image: url("./assets/pic1.jpg");
 }
 li{
   display: inline-block;
@@ -55,14 +54,21 @@ li{
   color: aliceblue;
   border-radius: 10px;
 }
+.menu {
+  color: aliceblue;
+}
 .menu.active,
 .menu:hover{
-  color:black;
-  background-color:beige;
-  border-bottom-color: rgb(75, 75, 255);
+  background-color:rgb(73, 93, 182);
+  border-bottom-color: rgb(229, 229, 252);
+  color: black;
 }
 ul{
   list-style:none;
+}
+.item {
+  color: aliceblue;
+  font-weight: bold;
 }
 #left{
     float:left;

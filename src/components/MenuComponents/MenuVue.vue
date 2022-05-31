@@ -180,9 +180,6 @@ export default{
         isGreen(){
             return this.color == "green";
         },
-        isPurple(){
-            return this.color == "purple";
-        },
         isWhite(){
             return this.color == "white";
         }
@@ -194,10 +191,11 @@ export default{
 .list{
     width: 15%;
     margin: 20px;
-    margin-top: 100px;
-    background-color: #f9faff;
+    margin-top: 50px;
+    background-color: #eceef3;
     padding: 15px;
     border-radius: 20%;
+    display: grid;
     display: inline-block;
     border-style: solid;
     border-color: #9bafae;
@@ -222,9 +220,6 @@ a{
 }
 .blue{
     background-color: rgb(145, 186, 248);
-}
-.purple{
-    background-color: rgb(194, 166, 194);
 }
 .green{
     background-color: rgb(170, 223, 170);
