@@ -2,10 +2,10 @@
     <AsideView></AsideView>
     <div class="list" v-for="(d,index) in data" :key="index">
         {{ d }} 
-        {{iterateItems(index)}}
-        {{menuItemCount(index)}} 
-        {{pathList(index)}} 
-        {{getStates(index)}} 
+        {{iterateItemsEv(index)}}
+        {{menuItemCountEv(index)}} 
+        {{pathListEv(index)}} 
+        {{getStatesEv(index)}} 
         {{getColor()}}
         <nav>
             <div class="component">
@@ -45,15 +45,21 @@ export default{
         menuItemsCpt : 0,
         blueCount:0,
         //greenCount:0,
-        //purpleCount:0,
         whiteCount:0,
         menuItems: Object.keys(Object.values(Object.values(jsonData)[0])[0]), //stack A equipement validation items
+        menuItemsAs: "",
+        menuItemsHc: "",
         itemPath: "",
+        itemPathAs:"",
+        itemPathHc:"",
         itemsPath: [],
         itemState:[],
         itemsColor: [],
         color: "",
-        state: ""
+        state: "",
+        stateAs: "",
+        stateHc: ""
+
         }
     },
     props: {
@@ -62,36 +68,38 @@ export default{
             }
         },
     methods: {
-        iterateItems(i){ //for equipement validation (the 0 refer to Equipement validation)
+
+        // Equipement Validation
+        iterateItemsEv(i){ 
             this.menuItems = Object.keys(Object.values(Object.values(jsonData)[i])[0]);
         },
-        menuItemCount(i){ //for equipement validation
+        menuItemCountEv(i){ 
             this.menuItemsCpt = Object.keys(Object.values(Object.values(jsonData)[i])[0]).length;
         },
-        iterateItemsPath(i, j){ //for equipement validation
+        iterateItemsPathEv(i, j){ 
             this.itemPath = Object.values(Object.values(Object.values(jsonData)[i])[0])[j]["path"];
         },
-        pathList(k){
+        pathListEv(k){
             let path = [];
             for(i=0; i<this.menuItemsCpt; i++){
-                this.iterateItemsPath(k,i);
+                this.iterateItemsPathEv(k,i);
                 path.push(this.itemPath);
             }
             this.itemsPath = path;
         },
-        getItemState(i,j){
+        getItemStateEv(i,j){
             this.state = (Object.values(Object.values(Object.values(jsonData)[i])[0])[j]["state"]).toLowerCase();
         },
-        stateList(k){
+        stateListEv(k){
             let itemsStates=[];
             for(i=0; i<this.menuItemsCpt; i++){
-                this.getItemState(k,i);
+                this.getItemStateEv(k,i);
                 itemsStates.push(this.state);
             }
             this.itemState = itemsStates;
         },
-        getStates(k){
-            this.stateList(k);
+        getStatesEv(k){
+            this.stateListEv(k);
             let cptBlue=0;
             let cptWhite=0;
             let colors=[];
@@ -106,6 +114,53 @@ export default{
             this.whiteCount = cptWhite;
             this.itemsColor = colors;
         },
+
+        //Assembly 
+        iterateItemsAs(){ 
+            this.menuItemsAs = Object.keys(Object.values(Object.values(jsonData)[i])[1]);
+        },
+        menuItemCountAs(i){ 
+            this.menuItemsCptAs = Object.keys(Object.values(Object.values(jsonData)[i])[1]).length;
+        },
+        iterateItemsPathAs(i, j){ 
+            this.itemPathAs = Object.values(Object.values(Object.values(jsonData)[i])[1])[j]["path"];
+        },
+        /*pathListAs(k){
+            
+        },*/
+        getItemStateAs(i,j){
+            this.stateAs = (Object.values(Object.values(Object.values(jsonData)[i])[1])[j]["state"]).toLowerCase();
+        },
+        /*stateListAs(k){
+         
+        },
+        getStatesAs(k){
+          
+        },*/
+
+        //Health check
+        
+        iterateItemsHc(){ 
+            this.menuItemsHc = Object.keys(Object.values(Object.values(jsonData)[i])[2]);
+        },
+        menuItemCountHc(i){ 
+            this.menuItemsCptHc = Object.keys(Object.values(Object.values(jsonData)[i])[2]).length;
+        },
+        iterateItemsPathHc(i, j){ 
+            this.itemPathHc = Object.values(Object.values(Object.values(jsonData)[i])[2])[j]["path"];
+        },
+        /*pathListHc(k){
+            
+        },*/
+        getItemStateHc(i,j){
+            this.stateHc = (Object.values(Object.values(Object.values(jsonData)[i])[2])[j]["state"]).toLowerCase();
+        },
+        /*stateListHc(k){
+        },
+        getStatesHc(k){
+           
+        },*/
+
         getColor(){
             this.color="";
             if(this.blueCount == this.menuItemsCpt){
@@ -139,32 +194,34 @@ export default{
 .list{
     width: 15%;
     margin: 20px;
-    background-color: #d0d9ff;
+    margin-top: 100px;
+    background-color: #f9faff;
     padding: 15px;
-    border-radius: 10%;
+    border-radius: 20%;
     display: inline-block;
     border-style: solid;
-    border-color: #b0b6d1;
+    border-color: #9bafae;
 }
 .menu-item{
     color: black;
-    background-color: aliceblue;
-     margin:10px;
+    background-color: rgb(205, 225, 243);
+    margin:10px;
     transition: 0.1s;
     cursor: pointer;
-    border-radius: 5%;
+    border-radius: 10%;
     text-align: center ;
 }
 .menu-item.active,
 .menu-item:hover {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(105, 154, 197);
+    color:white;
 }
 a{
     color: black;
     text-decoration: none;
 }
 .blue{
-    background-color: rgb(119, 170, 247);
+    background-color: rgb(145, 186, 248);
 }
 .purple{
     background-color: rgb(194, 166, 194);

@@ -7,7 +7,7 @@
             fill="#FFF"></path>
         </svg>
     </div>
-    <transition name="fade" appear>
+    <transition name="fade" appear>  
         <div class="sub-menu" v-if="isMenuOpen()">
             <div class="menu-item" v-for="(item,i) in items" :key="i" >
             <v-switch :case="color[i]">
@@ -72,17 +72,16 @@ export default{
 
 <style>
 .sub-menu{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(235, 235, 235);
 }
 .menu-item {
     color: black;
-    border-radius: 10px;
+    border-radius: 10%;
 }
 .menu-item.active,
 .menu-item:hover{
-    background-color: rgb(255, 254, 254);
-    border-bottom-color: rgb(70,96,209);
-    color: black;
+    background-color: rgb(235, 235, 235);
+    color: white;
 }
 .fade-enter-active,
 .fade-leave-active{

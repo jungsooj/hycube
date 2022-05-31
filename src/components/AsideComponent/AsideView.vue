@@ -17,13 +17,16 @@
 
 <style>
 .white {
+    color:black;
     background-color: antiquewhite;
 }
 .blue {
-    background-color: rgb(110, 110, 255);
+    color:black;
+    background-color: rgb(105, 154, 197);
 }
 .green {
-    background-color: rgb(86, 139, 86);
+    color:black;
+    background-color: rgb(101, 141, 101);
 }
 aside{
     float: right;

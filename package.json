@@ -10,6 +10,7 @@
   "dependencies": {
     "@lmiller1990/v-switch": "^1.1.0",
     "core-js": "^3.8.3",
+    "d3-graphviz": "^4.1.1",
     "v-switch-case": "^1.0.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13"
