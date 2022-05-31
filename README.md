@@ -30,6 +30,7 @@ npm run serve
 
 ### upgrade Nodejs version (>=14)
 ```
+```
 sudo apt update
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.bashrc
@@ -45,6 +46,7 @@ nvm ls-remote
 Intall a version > = 14
 ```
 nvm install [version.number]
+```
 ```
 
 
