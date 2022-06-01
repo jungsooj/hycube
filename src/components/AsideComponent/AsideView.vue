@@ -1,33 +1,38 @@
 <template>
+    {{getColorList()}}
     <aside>
-        <div class="white box">
-            Procedure being prepared
-        </div>
-        <div class="blue box">
-            procedure underway
-        </div>
-        <div class="green box">
-            procedure completed
+        <div v-for="(color, i) in colors" :key="i">
+            <div class="box" v-bind:style="{ backgroundColor : colors[i]}">
+                {{names[i]}}
+            </div>
         </div>
     </aside>
 </template>
 
 <script>
+'use strict';
+let asideData = require('../../data/AsideData.json');
+export default{
+    data (){
+        return{
+            names: Object.keys(asideData),
+            cpt: Object.keys(asideData).length,
+            colors:[]
+        }
+    },
+    methods:{
+        getColorList(){
+            let colorArray=[];
+            for(var i=0; i<this.cpt; i++){
+                colorArray[i] = Object.values(Object.values(asideData))[i]['color']
+            }
+            this.colors = colorArray;
+        }
+    }
+}
 </script>
 
 <style>
-.white {
-    color:black;
-    background-color: rgb(255, 255, 255);
-}
-.blue {
-    color:black;
-    background-color: rgb(105, 154, 197);
-}
-.green {
-    color:black;
-    background-color: rgb(92, 165, 92);
-}
 aside{
     float: right;
     margin: 5%;
@@ -44,5 +49,6 @@ aside{
     display:block;
     border-style: solid;
     border-color: #adc2c1;
+    color: black;
 }
 </style>

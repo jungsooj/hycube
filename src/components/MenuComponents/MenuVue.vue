@@ -58,7 +58,10 @@ export default{
         color: "",
         state: "",
         stateAs: "",
-        stateHc: ""
+        stateHc: "",
+        evColor: "",
+        asColor: "",
+        hcColor: ""
 
         }
     },
@@ -182,6 +185,9 @@ export default{
         },
         isWhite(){
             return this.color == "white";
+        },
+        getMenusColor(){
+
         }
     }
 }
@@ -191,8 +197,8 @@ export default{
 .list{
     width: 15%;
     margin: 20px;
-    margin-top: 50px;
-    background-color: #eceef3;
+    margin-top: 100px;
+    background-color: #fefeff;
     padding: 15px;
     border-radius: 20%;
     display: grid;

@@ -45,6 +45,7 @@ header{
 }
 body{
     margin:0;
+    background-image: url("./assets/gray.jpg");
 }
 li{
   display: inline-block;
