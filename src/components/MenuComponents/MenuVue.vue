@@ -134,8 +134,8 @@ export default{
                    default: cptWhite++; colors[i]="white";
                }
             }
-            this.blueCount = cptBlue;
-            this.whiteCount = cptWhite;
+            this.EvBlueCount = cptBlue;
+            this.EvWhiteCount = cptWhite;
             this.EvItemsColor = colors;
         },
 
@@ -327,6 +327,7 @@ export default{
     color: black;
     background-color: rgb(205, 225, 243);
     margin:10px;
+    padding: 5px;
     transition: 0.1s;
     cursor: pointer;
     border-radius: 10%;
@@ -334,7 +335,7 @@ export default{
 }
 .menu-item.active,
 .menu-item:hover {
-    background-color: rgb(105, 154, 197);
+    background-color: rgb(147, 186, 221);
     color:white;
 }
 a{
@@ -342,7 +343,7 @@ a{
     text-decoration: none;
 }
 .blue{
-    background-color: rgb(145, 186, 248);
+    background-color: rgb(90, 149, 236);
 }
 .green{
     background-color: rgb(170, 223, 170);
