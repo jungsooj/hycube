@@ -11,7 +11,7 @@
 
 <script>
 'use strict';
-let asideData = require('../../data/AsideData.json');
+let asideData = require('../../../data/AsideData.json');
 export default{
     data (){
         return{

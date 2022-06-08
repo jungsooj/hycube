@@ -1,12 +1,31 @@
 <template>
     <AsideView></AsideView>
-    <div class="list" v-for="(d,index) in data" :key="index">
+    <div class="list" v-for="(d,index) in data" :key="index" >
         {{iterateItemsEv(index)}}
         {{menuItemCountEv(index)}} 
         {{pathListEv(index)}} 
         {{getStatesEv(index)}} 
         {{getEvColor()}}
         {{ d }} 
+        <div v-if="isComponentBlue" :class="{blue: isComponentBlue()}">
+             <nav>
+            <div class="component">
+                <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}">
+                    <SubMenu title="Equipement validation" :items="EvMenuItems" :path="EvItemsPath" :color="EvItemsColor"></SubMenu>
+                </div>
+                <div class="menu-item" v-else :class="{white: isWhite()}" >
+                    <SubMenu title="Equipement validation" :items="EvMenuItems" :path="EvItemsPath" :color="EvItemsColor"></SubMenu>
+                </div>
+                <div class="menu-item" @click="existLink()">
+                    Assembly  
+                </div>
+                <div class="menu-item" @click="existLink()">
+                    Health check
+                </div>    
+            </div> 
+            </nav>
+        </div>
+       <div v-else> 
         <nav>
             <div class="component">
                 <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}">
@@ -24,13 +43,15 @@
             </div> 
         </nav>
     </div>
+    </div>
+
 </template>
 
 <script>
 import SubMenu from './SubMenu.vue';
 import AsideView from '../AsideComponent/AsideView.vue'
 'use strict';
-let jsonData = require('../../data/AitData.json');
+let jsonData = require('../../../data/AitData.json');
 let i=0;
 export default{
  components: {
@@ -62,7 +83,7 @@ export default{
         AsItemPath: "",
         AsItemState:[],
         AsState: "",
-        AsColor: "blue",
+        AsColor: "",
         AsBlueCount:0,
         AsWhiteCount:0,
         
@@ -75,7 +96,7 @@ export default{
         HcItemPath: "",
         HcItemState:[],
         HcState: "",
-        HcColor: "blue",
+        HcColor: "",
         HcBlueCount:0,
         HcWhiteCount:0,
         //HcGreenCount:0,
@@ -277,7 +298,7 @@ export default{
         },
 
         isComponentBlue(){
-            return this.EvIsBlue()&&this.AsIsBlue()&&this.HcIsBlue();
+            return (this.EvIsBlue()&&this.AsIsBlue()&&this.HcIsBlue());
         },
 
         EvIsBlue(){
@@ -314,11 +335,10 @@ export default{
 .list{
     width: 15%;
     margin: 20px;
-    margin-top: 100px;
+    margin-top: 80px;
     background-color: #fefeff;
     padding: 15px;
     border-radius: 20%;
-    display: grid;
     display: inline-block;
     border-style: solid;
     border-color: #9bafae;
@@ -332,6 +352,9 @@ export default{
     cursor: pointer;
     border-radius: 10%;
     text-align: center ;
+    border-style: solid;
+    border-color: #9bafae;
+    border-radius: 20%;
 }
 .menu-item.active,
 .menu-item:hover {
