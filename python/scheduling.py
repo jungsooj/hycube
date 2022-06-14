@@ -12,7 +12,7 @@ u = [[0, 0], [5, 1], [0, 4], [1, 4], [1, 3], [3, 2], [3, 1], [2, 4],
      [4, 0], [5, 2], [2, 5], [0, 0]]
 
 #capacity of renewable resource r
-c = [6, 8]
+c = [60, 80]
 
 #set of precedences between jobs(i,j)
 S = [[0, 1], [0, 2], [0, 3], [1, 4], [1, 5], [2, 9], [2, 10], [3, 8], [4, 6],
@@ -36,6 +36,8 @@ for (r, t) in product(R, T):
         xsum(u[j][r] * x[j][t2] for j in J for t2 in range(max(0, t - p[j] + 1), t + 1))
         <= c[r])
 
+
+
 for (j, s) in S:
     model += xsum(t * x[s][t] - t * x[j][t] for t in T) >= p[j]
 
@@ -49,3 +51,8 @@ for (j, t) in product(J, T):
         print("Job {}: begins at t={} and finishes at t={}".format(j, t, t+p[j]))
 print("_______________________________________________________________________")
 print("Makespan = {}".format(model.objective_value))
+
+
+
+
+

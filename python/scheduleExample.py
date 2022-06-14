@@ -1,4 +1,4 @@
-from mip import Model, BINARY, minimize, xsum
+from mip import Model, BINARY, xsum
 from itertools import product
 
 n=3
@@ -18,7 +18,7 @@ M= Model()
 
 x=[[M.add_var(name="x{},{}".format(t,j), var_type=BINARY) for t in T] for j in J]
 
-M.objective=minimize(xsum(t * x[n+1][t] for t in T))
+M.objective= xsum(t * x[n+1][t] for t in T)
 
 for j in J:
     M+= xsum(x[j][t] for t in T) == 1
