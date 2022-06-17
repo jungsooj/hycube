@@ -6,12 +6,13 @@ def minCheck(bat):
     else:
         return False
     
-def maxCharging(c,p,u,i):
+def maxCharging(c,p,w,t):
+    I= range(len(p))
     M=Model()
-    x=[M.add_var(var_type=BINARY) for i in I]
-    M.objective = maximize(xsum(x[i] * u[i] for i in I))
-    M+= xsum(x[i] * p[i] for i in I) <= c[0]
-    M+= xsum(x[i] * u[i] for i in I) <= c[1]
+    x=[M.add_var(var_type=BINARY) for i in I] 
+    M.objective = maximize(xsum(x[i] * p[i] * 4.5 for i in I))
+    M+= xsum(x[i] * p[i] for i in I) <= t
+    M+= xsum(x[i] * p[i] * 4.5 for i in I) <= c
     M.optimize()
     
 def takePic(bat):
@@ -20,31 +21,58 @@ def takePic(bat):
     else:
         return True
 
-
-# Capacity Max / 30: time / 15 : puissance
-c=[30,15]
+# 10: time / 15: puissance max
+c=16
+w=4.5
+t=10
 # times
 p=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-u=[2,4,6,8,10,12,14,16,18,20,22,24,26,28,30] 
-I= range(len(p)) 
+
+#Battery 100%
+bat_max = 756.8
+bat_curr=756.8
+#Battery 30%
+bat_min = 226.8
+p_max = 16
 
 
-c2=[15,100,100]
 
-u[[5,4,4],[2,1,1],[3,2,2],[10,7,7],[3,2,2],[5,4,4],[3,2,2],
-  [30,14,10],[3,2,2],[3,2,2],[25,12,12],[7,6,6],[2,1,1],[2,1,1],
-  [2,1,1],[2,1,1]]
+#time set for each job
+t=[5,2,3,10.0,3.0,5.0,3.0,30.0,3.0,3.0,25.0,7.0,2.0,2.0,2.0,2.0]
+
+# Electrical power 
+w1=[16,4.5,5.75,4.1,4.5,4.1,5.75,4.1,5.75,5.75,16,4.1,4.5,4.5,4.5,4.5]
+b=[]
+for i in range(len(t)):
+    b.append(t[i]*w[i])
 
 S=[[1,2],[2,3],[3,4],[4,13],[5,6],[6,14],[7,8],[8,15],[9,10],[10,16],
    [13,5],[14,7],[15,9],[16,11]]
 
-J= range(len(u))
+J= range(len(p))
 
 M= Model()
 
-x= [M.add_var(var_type=BINARY) for i in I]
+x= [M.add_var(var_type=BINARY) for i in J]
 
-M.objective= minimize(xsum(x[i] * p[i] for i in I))
+M.objective= minimize(xsum(x[i] * w1[i] for i in J))
+  
+for j in J:
+    bat_curr -= b[j]
+    if(j == 4):
+        bat_curr+= 4.5*10
+    print(bat_curr)
+    if(takePic(bat_curr) == False):
+        j+=1
+        
+        
+M+= xsum(x[j] * w[j] for j in J) <= 16
+M+= xsum(x[j] * b[j] for j in J) >= bat_min
+    
+selected = [j for j in J if x[j] >= 0.99]
+print("selected items: {}".format(selected))
+    
+    
 
  
 
