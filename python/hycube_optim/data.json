@@ -1,0 +1,11 @@
+{
+    "pic number" : 10,
+    "max time": 100,
+    "operations":
+    {
+        "TM download" : 16,
+        "sun pointing" : 2,
+        "picture" : 3,
+        "station pointing" : 5
+    }
+}

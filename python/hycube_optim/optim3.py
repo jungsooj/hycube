@@ -1,4 +1,5 @@
-import json
+from mip import Model, BINARY, xsum
+from itertools import product
 
 c=16.5
 
@@ -58,62 +59,38 @@ for i in range(len(t)):
     x= t[i] * w[i]
     b.append(x)
 
+m = Model()
+
+x= [m.add_var(var_type=BINARY)  for j in J]
+
 for j in J:
+    m+= xsum(x[j] )
     if(j == 2 or j == 4 or j == 6 or j == 8):
         if(takePic(bat_curr) == True):
-            bat_curr+= 4.59 * maxCharging(t[j])
-            Jobs.append(j)
+             bat_curr+= 4.59 * maxCharging(t[j])
+             Jobs.append(j)
         else:
             bat_curr -= 4.1
     else:
         Jobs.append(j)
         bat_curr -= b[j]
-
-dicts={}
-print("_____________________ Jobs ___________________________")
-print("______________________________________________________")
-for j in J:
-    print("job {} starts at {} and finish at {}".format(Jobs[j],time,time+t[j]))
-    time+= t[j]
-    dicts[Jobs[j]] = [time, time+t[j]]
-print("______________________________________________________")
-
-with open("dicts.json", 'w') as output:
-    json.dump(dicts,output)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
     
+
+for(j,s) in S:
+    m+= xsum(t * x[s][t] - t * x[j][t] for t in T ) >= p[j]
     
-    
-    
+print("_______________________________________________________________________")
+print("Schedule: ")
+print("_______________________________________________________________________")
+for (j, t) in product(J, T):
+    if x[j][t].x >= 0.99:
+        print("Job {}: begins at t={} and finishes at t={}".format(j, t, t+p[j]))
+print("_______________________________________________________________________")
+print("Makespan = {}".format(m.objective_value))
+
+
+
+
+
+

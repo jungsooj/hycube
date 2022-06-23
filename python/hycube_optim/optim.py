@@ -2,7 +2,7 @@ from mip import Model, xsum, BINARY, maximize
 import json
 
 #electrical power for charging
-w=4.5
+w=16.5
 
 # times
 p=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
@@ -38,6 +38,7 @@ J= range(len(t))
 T=range(sum(t))
 time=0
 
+#functions definition
 def minCheck(bat):
     if bat <= bat_min:
         return True
@@ -58,7 +59,6 @@ def maxCharging(c,p,w,t):
         time += p[result[i]]
     return time * 4.5
         
-
 def takePic(bat):
     if(minCheck(bat)):
         return False
@@ -69,10 +69,11 @@ def repeatCharging(tMax, time):
     return time % tMax 
     
     
-
 for i in range(len(t)):
     x= t[i] * w1[i]
     b.append(x)
+
+
 
 for j in J:
     print(minCheck(bat_curr))
