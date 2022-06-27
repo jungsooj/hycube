@@ -31,6 +31,16 @@
                         </div>
                     </div>
                 </template>
+                <template #green>
+                    <div :class="{green: color[i]=='green'}">
+                        <a :href="path[i]" target="_blank" rel="noopener noreferrer" v-if="pathExist== true" >
+                            {{item}} 
+                        </a>
+                        <div v-else @click="existLink(path[i])">
+                            {{item}} 
+                        </div>
+                    </div>
+                </template>
             </v-switch>
                 
             </div>
@@ -99,7 +109,7 @@ fade-leave-to {
     background-color: rgb(194, 166, 194);
 }
 .green{
-    background-color: rgb(170, 223, 170);
+    background-color: rgb(92, 165, 92);
 }
 .white{
     background-color: white;

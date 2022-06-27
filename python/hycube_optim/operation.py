@@ -2,31 +2,43 @@ from mip import Model, BINARY, xsum
 from itertools import product
 import json
 
+# list of operations
+ops=[]
 
+# Time set for operations
+time=[]
+
+S=[]
+
+
+# Stocking thejson data in data (dict)
 with open('data.json') as file:
     data = json.load(file)
-    
-#print(data['operations'])
-#for key, value in data["operations"]:
-    #print(key)
+  
+# Getting keys and values of operations
+for i in data['operations']:
+    print(i,data['operations'][i])
+    ops.append(i)
+    time.append(data['operations'][i])
  
-dicts={"TM download" : 16,
-"sun pointing" : 2,
-"picture" : 3,
-"station pointing" : 5}
+#just to verify
+for i in range(len(ops)):
+    print(ops[i])
+    print(time[i])
+ 
+S=data['precedences']
 
-for i in dicts:
-    print(i, dicts[i])
+# Getting number of pics
+num_pic=data["pic number"]
 
-pic=data["pic number"]
-print(pic)
 
-J=range(4)
-
+# Function to see if we can take a picture 
 def takePic():
-    return True
+    if(bat_curr>bat_min):
+        return True
+    else:
+        return False
 
-#pic_number= int(input("enter number of pictures"))
 
 #Battery 100%
 bat_max = 756.8

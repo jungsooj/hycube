@@ -3,46 +3,52 @@
     <div class="list" v-for="(d,index) in data" :key="index" >
         {{iterateItemsEv(index)}}
         {{menuItemCountEv(index)}} 
-        {{pathListEv(index)}} 
+        {{pathListEv(index)}}
         {{getStatesEv(index)}} 
         {{getEvColor()}}
         {{ d }} 
-        <div v-if="isComponentBlue" :class="{blue: isComponentBlue()}">
+        <div v-bind:style="{ backgroundColor : getColorCode()}">
              <nav>
             <div class="component">
                 <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}">
+                    {{resetColor()}}
+                    <SubMenu title="Equipement validation" :items="EvMenuItems" :path="EvItemsPath" :color="EvItemsColor"></SubMenu>
+                </div>
+                <div class="menu-item" v-else-if="isGreen()" :class="{green: isGreen()}" >
+                    {{resetColor()}}
                     <SubMenu title="Equipement validation" :items="EvMenuItems" :path="EvItemsPath" :color="EvItemsColor"></SubMenu>
                 </div>
                 <div class="menu-item" v-else :class="{white: isWhite()}" >
+                    {{resetColor()}}
                     <SubMenu title="Equipement validation" :items="EvMenuItems" :path="EvItemsPath" :color="EvItemsColor"></SubMenu>
                 </div>
-                <div class="menu-item" @click="existLink()">
-                    Assembly  
+                <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}" @click="existLink()">
+                    {{resetColor()}}
+                    <SubMenu title="Assembly" :items="AsMenuItems" :path="AsItemsPath" :color="AsItemsColor"></SubMenu>
                 </div>
-                <div class="menu-item" @click="existLink()">
-                    Health check
-                </div>    
+                <div class="menu-item" v-else-if="isGreen()" :class="{green: isGreen()}" @click="existLink()">
+                    {{resetColor()}}
+                    <SubMenu title="Assembly" :items="AsMenuItems" :path="AsItemsPath" :color="AsItemsColor"></SubMenu>
+                </div>
+                <div class="menu-item" v-else :class="{white: isWhite()}" @click="existLink()">
+                    {{resetColor()}}
+                    <SubMenu title="Assembly" :items="AsMenuItems" :path="AsItemsPath" :color="AsItemsColor"></SubMenu>
+                </div>
+                <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}" @click="existLink()">
+                    {{resetColor()}}
+                    <SubMenu title="Health check" :items="HcMenuItems" :path="HcItemsPath" :color="HcItemsColor"></SubMenu>
+                </div>
+                <div class="menu-item" v-else-if="isGreen()" :class="{green: isGreen()}" @click="existLink()">
+                    {{resetColor()}}
+                    <SubMenu title="Heaalth check" :items="HcMenuItems" :path="HcItemsPath" :color="HcItemsColor"></SubMenu>
+                </div>
+                <div class="menu-item" v-else :class="{white: isWhite()}" @click="existLink()">
+                    {{resetColor()}}
+                    <SubMenu title="Health check" :items="HcMenuItems" :path="HcItemsPath" :color="HcItemsColor"></SubMenu>
+                </div>
             </div> 
             </nav>
         </div>
-       <div v-else> 
-        <nav>
-            <div class="component">
-                <div class="menu-item" v-if="isBlue()" :class="{blue: isBlue()}">
-                    <SubMenu title="Equipement validation" :items="EvMenuItems" :path="EvItemsPath" :color="EvItemsColor"></SubMenu>
-                </div>
-                <div class="menu-item" v-else :class="{white: isWhite()}" >
-                    <SubMenu title="Equipement validation" :items="EvMenuItems" :path="EvItemsPath" :color="EvItemsColor"></SubMenu>
-                </div>
-                <div class="menu-item" @click="existLink()">
-                    Assembly  
-                </div>
-                <div class="menu-item" @click="existLink()">
-                    Health check
-                </div>    
-            </div> 
-        </nav>
-    </div>
     </div>
 
 </template>
@@ -74,6 +80,7 @@ export default{
         EvColor: "",
         EvBlueCount:0,
         EvWhiteCount:0,
+        EvGreenCount:0,
 
         //Assembly data
         AsMenuItemsCpt : 0,
@@ -86,6 +93,7 @@ export default{
         AsColor: "",
         AsBlueCount:0,
         AsWhiteCount:0,
+        AsGreenCount:0,
         
 
         //Health check
@@ -99,12 +107,13 @@ export default{
         HcColor: "",
         HcBlueCount:0,
         HcWhiteCount:0,
-        //HcGreenCount:0,
+        HcGreenCount:0,
 
         color: "",
         componentColor: "",
         MenuBlueCount: 0,
         MenuWhiteCount:0,
+        MenuGreenCount:0,
         }
     },
     props: {
@@ -147,16 +156,18 @@ export default{
             this.stateListEv(k);
             let cptBlue=0;
             let cptWhite=0;
+            let cptGreen=0;
             let colors=[];
             for(i=0; i<this.EvMenuItemsCpt; i++){
                switch(this.EvItemState[i]){
                    case "reception" : cptBlue++; colors[i] = "blue";  break;
-                   case "NaN" : cptWhite++; colors[i]= "white"; break;
+                   case "complete" : cptGreen++; colors[i]="green"; break;
                    default: cptWhite++; colors[i]="white";
                }
             }
             this.EvBlueCount = cptBlue;
             this.EvWhiteCount = cptWhite;
+            this.EvGreenCount= cptGreen;
             this.EvItemsColor = colors;
         },
 
@@ -193,16 +204,18 @@ export default{
             this.stateListAs(k);
             let cptBlue=0;
             let cptWhite=0;
+            let cptGreen=0;
             let colors=[];
             for(i=0; i<this.AsMenuItemsCpt; i++){
                switch(this.AsItemState[i]){
                    case "reception" : cptBlue++; colors[i] = "blue";  break;
-                   case "NaN" : cptWhite++; colors[i]= "white"; break;
+                   case "completed" : cptGreen++; colors[i]="green"; break;
                    default: cptWhite++; colors[i]="white";
                }
             }
             this.blueCount = cptBlue;
             this.whiteCount = cptWhite;
+            this.greenCount= cptGreen;
             this.AsItemsColor = colors;
         },
 
@@ -240,16 +253,18 @@ export default{
             this.stateListHc(k);
             let cptBlue=0;
             let cptWhite=0;
+            let cptGreen=0;
             let colors=[];
             for(i=0; i<this.HcMenuItemsCpt; i++){
                switch(this.HcItemState[i]){
                    case "reception" : cptBlue++; colors[i] = "blue";  break;
-                   case "NaN" : cptWhite++; colors[i]= "white"; break;
+                   case "completed" : cptGreen++; colors[i]="green"; break;
                    default: cptWhite++; colors[i]="white";
                }
             }
             this.blueCount = cptBlue;
             this.whiteCount = cptWhite;
+            this.greenCount= cptGreen;
             this.HcItemsColor = colors;
         },
 
@@ -300,6 +315,9 @@ export default{
         isComponentBlue(){
             return (this.EvIsBlue()&&this.AsIsBlue()&&this.HcIsBlue());
         },
+        isComponentGreen(){
+            return (this.EvIsGreen()&&this.AsIsGreen()&&this.HcIsGreen());
+        },
 
         EvIsBlue(){
             return this.EvColor == "blue";
@@ -309,6 +327,15 @@ export default{
         },
         HcIsBlue(){
             return this.HcColor == "blue";
+        },
+        EvIsGreen(){
+            return this.EvColor == "green";
+        },
+        AsIsGreen(){
+            return this.AsColor == "green";
+        },
+        HcIsGreen(){
+            return this.HcColor == "green";
         },
 
         existLink(){
@@ -324,8 +351,17 @@ export default{
         isWhite(){
             return this.color == "white";
         },
-        getMenusColor(){
-
+        resetColor(){
+            this.color="white";
+        },
+        getColorCode(){
+            if(this.EvIsBlue()&&this.AsIsBlue()&&this.HcIsBlue()){
+                return "rgb(105, 154, 197)"
+            }
+            else if(this.EvIsGreen()&&this.AsIsGreen()&&this.HcIsGreen()){
+                return "rgb(92, 165, 92)"
+            }
+            else return 
         }
     }
 }
