@@ -7,12 +7,15 @@ p=11.5
 
 #Battery 100%
 bat_max = 756.8
+bat_max = 1000
+
+
 
 #At start current battery = battery max
 bat_curr= bat_max
 
-#Battery 30%
-bat_min = bat_max*0.3
+#Battery 70% minimum (30%DoD)
+bat_min = bat_max*0.7
 
 #Max puiss that we can use 
 p_max = 16
@@ -28,6 +31,8 @@ t=[0,5,2,3,10,3,5,3,30,3,3,25,2,2,2,2,0]
 
 # Electrical power 
 w=[0.0,4.1,4.5,5.75,4.5,5.75,4.5,5.75,4.5,5.75,4.5,16,4.5,4.5,4.5,4.5,0.0]
+
+
 
 S=[[0,1],[1,2],[2,3],[3,4],[4,12],[5,6],[6,13],[7,8],[8,14],[9,10],[10,15],
    [11,16],[12,5],[13,7],[14,9],[15,11]]
