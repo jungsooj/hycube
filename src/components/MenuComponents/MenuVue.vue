@@ -252,8 +252,8 @@ export default{
         getStatesHc(k){
             this.stateListHc(k);
             let cptBlue=0;
-            let cptWhite=0;
             let cptGreen=0;
+            let cptWhite=0;
             let colors=[];
             for(i=0; i<this.HcMenuItemsCpt; i++){
                switch(this.HcItemState[i]){
